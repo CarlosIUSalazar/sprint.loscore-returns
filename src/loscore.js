@@ -154,17 +154,19 @@ class LoScore {
   }
 
   invoke(collection, functionOrKey) {
-    // YOUR CODE HERE
-    let resultArr = [];
-    //console.log(resultArr)
-    if (typeof functionOrKey !== "function") {
-      resultArr = this.map(collection, (i) => {
-        return i[functionOrKey].apply(i);
-      });
-    } else if (typeof functionOrKey === "function") {
-      resultArr = this.map(collection, (i) => {
-        return functionOrKey.apply(i);
-      });
+    const resultArr = [];
+    if (typeof functionOrKey === "function") {
+      for (let i = 0; i < collection.length; i++) {
+        resultArr.push(functionOrKey.apply(collection[i]));
+      }
+    } else {
+      for (let i = 0; i < collection.length; i++) {
+        if (typeof collection[i] === "string") {
+          resultArr.push(""[functionOrKey].apply(collection[i]));
+        } else {
+          resultArr.push([][functionOrKey].apply(collection[i]));
+        }
+      }
     }
     return resultArr;
   }
