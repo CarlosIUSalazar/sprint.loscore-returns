@@ -5,10 +5,7 @@ class LoScore {
     return val;
   }
 
-  /**
-  | ARRAYS
-  |~~~~~~~~~~
-  * */
+
   uniq(array) {
     // YOUR CODE HERE
     const seen = {};
@@ -21,11 +18,10 @@ class LoScore {
     }
     return ret_arr;
   }
-  
-  
-  
-  // COLLECTIONS 
-  
+
+
+
+
   each(collection, iterator) {
     if (collection instanceof Array) {
       for (let i = 0; i < collection.length; i += 1) {
@@ -40,7 +36,7 @@ class LoScore {
   }
 
   map(collection, iteratee) {
-    let resultArr = [];
+    const resultArr = [];
     this.each(collection, (val) => {
       resultArr.push(iteratee(val));
     });
@@ -102,11 +98,10 @@ class LoScore {
     }
     return check;
   }
-
-  /**
-  | OBJECTS
-  |~~~~~~~~~~
-  * */
+  
+  
+  
+  
   extend(...obj) {
     // YOUR CODE HERE
     for (let i = 0; i < obj.length - 1; i++) {
@@ -116,12 +111,9 @@ class LoScore {
     }
     return obj[0];
   }
-
-  /**
-  | FUNCTIONS
-  |~~~~~~~~~~
-  * */
-
+  
+  
+  
   once(func) {
     // YOUR CODE HERE
     let counter = 0;
@@ -137,16 +129,16 @@ class LoScore {
     return f;
   }
 
+
   memoize(func) {
     // YOUR CODE HERE
-    let result = {};
+    const result = {};
     return function(...val) {
       if (result[val]) {
         return result[val];
-      } else {
-        result[val] = func(val);
-        return result[val];
       }
+      result[val] = func(val);
+        return result[val];
     };
   }
 
@@ -178,7 +170,7 @@ class LoScore {
   }
 
   zip() {
-    // YOUR CODE HREE
+    // YOUR CODE HERE
   }
 
   delay() {
