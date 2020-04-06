@@ -1,4 +1,3 @@
-//console.log("Hello World");
 // Let's make an object and start adding methods to it!
 class LoScore {
   identity(val) {
@@ -118,7 +117,6 @@ class LoScore {
     // YOUR CODE HERE
     let counter = 0;
     let result;
-    // console.log(func);
     function f(args) {
       if (counter === 0) {
         result = func(args);
