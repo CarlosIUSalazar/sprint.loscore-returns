@@ -1,4 +1,4 @@
-//console.log("Hello World");
+console.log("Hello World");
 // Let's make an object and start adding methods to it!
 class LoScore {
   identity(val) {
