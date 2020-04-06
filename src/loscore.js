@@ -21,13 +21,11 @@ class LoScore {
     }
     return ret_arr;
   }
-
-  // /**
-  // | COLLECTIONS
-  // |~~~~~~~~~~
-  // * */
-
-
+  
+  
+  
+  // COLLECTIONS 
+  
   each(collection, iterator) {
     if (collection instanceof Array) {
       for (let i = 0; i < collection.length; i += 1) {
