@@ -40,11 +40,11 @@ class LoScore {
   }
 
   map(collection, iteratee) {
-    // YOUR CODE HERE
-    const resultArr = [];
-    this.each(collection, function(val) {
+    let resultArr = [];
+    this.each(collection, (val) => {
       resultArr.push(iteratee(val));
     });
+
     return resultArr;
   }
 
@@ -55,13 +55,13 @@ class LoScore {
   }
 
   reject(collection, test) {
-    const result = [];
-    this.filter(collection, function(val) {
+    const resultArr = [];
+    this.filter(collection, (val) => {
       if (!test(val)) {
-        result.push(val);
+        resultArr.push(val);
       }
     });
-    return result;
+    return resultArr;
   }
 
   reduce(collection, iterator, accumulator) {
@@ -139,17 +139,14 @@ class LoScore {
 
   memoize(func) {
     // YOUR CODE HERE
-    const cache = {};
-    return function() {
-      const key = JSON.stringify(arguments);
-      if (cache[key]) {
-        //console.log(cache)
-        return cache[key];
+    let result = {};
+    return function(...val) {
+      if (result[val]) {
+        return result[val];
+      } else {
+        result[val] = func(val);
+        return result[val];
       }
-      const val = func.apply(null, arguments);
-      //console.log(val)
-      cache[key] = val;
-      return val;
     };
   }
 
