@@ -4,10 +4,7 @@ class LoScore {
     return val;
   }
 
-  /**
-  | ARRAYS
-  |~~~~~~~~~~
-  * */
+
   uniq(array) {
     // YOUR CODE HERE
     const seen = {};
@@ -21,10 +18,9 @@ class LoScore {
     return ret_arr;
   }
 
-  /**
-  | COLLECTIONS
-  |~~~~~~~~~~
-  * */
+
+
+
   each(collection, iterator) {
     if (collection instanceof Array) {
       for (let i = 0; i < collection.length; i += 1) {
@@ -39,7 +35,6 @@ class LoScore {
   }
 
   map(collection, iteratee) {
-    // YOUR CODE HERE
     const resultArr = [];
     this.each(collection, (val) => {
       resultArr.push(iteratee(val));
@@ -72,7 +67,7 @@ class LoScore {
     return accumulator;
   }
 
-  every() {
+  every(collection, test) {
     // YOUR CODE HERE
     if (collection.length === 0) {
       return true;
@@ -101,12 +96,11 @@ class LoScore {
     }
     return check;
   }
-
-  /**
-  | OBJECTS
-  |~~~~~~~~~~
-  * */
-  extend(obj) {
+  
+  
+  
+  
+  extend(...obj) {
     // YOUR CODE HERE
     for (let i = 0; i < obj.length - 1; i++) {
       this.each(obj[i + 1], (value, key) => {
@@ -115,12 +109,9 @@ class LoScore {
     }
     return obj[0];
   }
-
-  /**
-  | FUNCTIONS
-  |~~~~~~~~~~
-  * */
-
+  
+  
+  
   once(func) {
     // YOUR CODE HERE
     let counter = 0;
@@ -135,6 +126,7 @@ class LoScore {
     return f;
   }
 
+
   memoize(func) {
     // YOUR CODE HERE
     const result = {};
@@ -148,7 +140,6 @@ class LoScore {
   }
 
   invoke(collection, functionOrKey) {
-    // YOUR CODE HERE
     const resultArr = [];
     if (typeof functionOrKey === "function") {
       for (let i = 0; i < collection.length; i++) {
@@ -176,7 +167,7 @@ class LoScore {
   }
 
   zip() {
-    // YOUR CODE HREE
+    // YOUR CODE HERE
   }
 
   delay() {
