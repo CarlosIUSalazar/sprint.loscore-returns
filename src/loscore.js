@@ -187,5 +187,4 @@ class LoScore {
       // YOUR CODE HERE
   }
 }
-
 module.exports = new LoScore();
