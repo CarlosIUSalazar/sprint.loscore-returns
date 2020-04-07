@@ -1,4 +1,3 @@
-//console.log("Hello World");
 // Let's make an object and start adding methods to it!
 class LoScore {
   identity(val) {
@@ -187,6 +186,4 @@ class LoScore {
   throttle() {
     // YOUR CODE HERE
   }
-}
-
-module.exports = new LoScore();
+}module.exports = new LoScore();
