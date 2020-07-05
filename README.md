@@ -1,94 +1,73 @@
-# Loscore リターンズ
-### This was created during my time as a [Code Chrysalis](https://codechrysalis.io) Student
+Loscore Returns
+This looks familiar! But with a few small changes.
 
-これは、皆さんおなじみですね！しかし、いくつかの小さな変更があります。
+During precourse, you relied a lot on the browser. But now you know what Node is (hopefully. If you don't, go google it)! Let's get used to using Node to run our JavaScript and rely a little less on the browser.
+Skim package.json and see if you recognize anything.
+Note: While getting to know the Lodash and Underscore libraries is good, this exercise's intent is to practice and gain fluency with creating higher order functions and reading tests. We want you to think about what happens "underneath the hood" of some of these well-known libraries---how are things done? And to show you that you can absolutely do the same---it just takes time and patience.
 
-1.  事前課題では、ブラウザに大きく依存していました。しかし今では、Node が何であるかが理解できているはずです（そう願います。もし理解できていないようなら、Google で検索してください）！ Node を使用して JavaScript を実行することに慣れて、ブラウザへの依存を少し減らしましょう。
-2.  `package.json` を流し見して、それぞれの項目を理解できるかどうか確認してください。
+Objectives
+Be able to use Node and yarn to run tests
+Ensure there are at least two tests for each method
+Be able to commit code after each milestone
+Create functions that accept functions as arguments (higher order functions)
+Write code to make Jasmine tests pass
+Store values as a hash map
+Retrieve values from a hash map
+Set Up
+Fork and clone this repository following the Code Chrysalis git flow instructions.
 
-注：Lodash および Underscore ライブラリを理解するのは良いことですが、この演習の目的は、高階関数の作成とテストの読み方を練習して上達することにあります。これらの有名なライブラリの "ボンネットの下" で何が起こっているのかを考えてみてください --- どのように処理が行われているのか？そして、あなたが完全に同じことができると理解するために --- それには時間と忍耐が必要です。
+Install dependencies: yarn install
 
-## 達成目標
+Command to run tests: yarn test
 
-* Node と yarn を使用してテストを実行できるようになる。
-* 各メソッドに少なくとも 2 つのテストがあることを確認する。
-* 各マイルストーンの終了後にコードをコミットできる。
-* 関数を引数として受け取る関数（高階関数）を作成する。
-* Jasmine のテストに合格するためのコードを書く。
-* 値をハッシュマップとして保存する。
-* ハッシュマップから値を取得する。
+Basic Requirements
+Successfully completing these problems DOES NOT mean that you've memorized how these work. On the contrary, focus on thinking about the inputs and the outputs of each method.
 
-## セットアップ
+Arrays
+_.uniq - uniq should take an array and return a duplicate-free version
+Collections
+_.map - similar to _.each, but returns an array capturing all results returned by passing the iteratee the value, key (or index), and collection. The iteratee should return the resulting value that is to be stored in the array eventually returned by map. Use each in your solution.
 
-Code Chrysalis の git フローの指示に従って、このリポジトリをフォークおよびクローンします。
+_.reject - return all elements of an array that DON'T pass a truth test. Use filter in your solution.
 
-依存パッケージのインストール：`yarn install`
+_.reduce - reduces a collection to a single value by repetitively calling the iterator(accumulator, item) for each item. The accumulator should be the return value of the previous iterator call.
 
-テストコードを実行するコマンド：`yarn test`
+If no starting value is passed, the first element in the collection should be used as the accumulator.
 
-## 基本レベル
-
-以下の問題を解く上で、それぞれの関数がどのように機能するのか、暗記することは重要ではありません。そうではなく、各メソッドの入出力について考えることに集中してください。
-
-### 配列
-
-1.  `_.uniq` - uniq は引数として配列を受け取り、重複を除いた配列を返します。
-
-### コレクション
-
-1.  `_.map` - `_.each` に似ていますが、イテレータに値、キー（またはインデックス）、コレクションを渡し、すべての結果値を格納する新しい配列を返します。イテレータは、最終的に map によって返される新しい配列に格納される結果値を返す必要があります。この問題では `each` を使用する必要があります。
-
-1.  `_.reject` - 真偽テストに合格しない配列中のすべての要素を返します。この問題では `filter` を使用する必要があります。
-
-1.  `_.reduce` - 各要素に対して `iterator(accumulator, item)` を繰り返し呼び出すことにより、コレクションを単一の値にします。アキュムレータは、前回のイテレーター呼び出しの戻り値でなければなりません。
-
-初期値を渡さなかった場合、コレクション内の最初の要素をアキュムレータとして使用することになります。
-
-```js
 const numbers = [1, 2, 3];
 const accumulate = (result, int) => {
   return result + int;
 };
 const sum = _.reduce(numbers, accumulate(total, number), 0); // ---> 6
-```
+_.every - determines if all the elements pass the given truth test. Returns a boolean, takes in a callback (the test). It should use _.reduce.
+Objects
+_.extend - extends a main object with the properties of another object. The first argument should be the main object and subsequent arguments should be objects to add to the main object. Please use _.each if you can. It makes shallow copies only.
+Functions
+These are function decorators. Function decorators take a function and return a new version of that function that works just a little bit differently.
 
-1.  `_.every` - すべての要素が真偽テストに合格するかどうかを決定します。ブール値を返し、コールバック（テスト）を受け取ってください。`_.reduce` を使用する必要があります。
+_.once - returns a function that can be called at most one time. Any subsequent calls should return the previously returned value. You'll need to use closures for this.
 
-### オブジェクト
+_.memoize - takes a function as an input. It takes the input function's results and stores them (a cache). It should return a function that, when called, will check if it has already computed a result for the given argument. It should return the cached value if possible. You may want to think about using JSON.stringify. Assume the input function only takes primitives as arguments.
 
-1.  `_.extend` - メインオブジェクトを別のオブジェクトのプロパティを使って拡張します。最初の引数はメインオブジェクトであり、2 番目の引数はメインオブジェクトに追加するオブジェクトでなければなりません。可能であれば、`_.each` を使用してください。シャローコピーのみを作成します。
+_.invoke - calls the method named by methodOrKey on each value in the list. Assume there are no extra arguments.
 
-### 関数
+Besides being a string, methodOrKey can also be a function passed in. If it is a function, then we can apply the values directly onto it. You may want to use apply here, or at least learn about it.
 
-これらは関数のデコレータです。関数のデコレータは関数を受け取り、少し異なる動作をする新しいバージョンの関数を返します。
-
-1.  `_.once` - 一度だけ呼び出すことのできる関数を返します。後続の呼び出しは、以前に返した戻り値を返す必要があります。これにはクロージャを使用する必要があります。
-
-1.  `_.memoize` - 引数として関数（入力関数）を受け取ります。入力関数の結果を取得して保存します（キャッシュ）。呼び出されたときに、与えられた引数の結果を既に計算しているかどうかを確認する関数を返す必要があります。可能であれば、キャッシュされた値を返すべきです。`JSON.stringify` を使いたいと思うかもしれません。入力関数は引数としてプリミティブな値のみを取ると仮定します。
-
-1.  `_.invoke` - リスト内の各値に対して `methodOrKey` で指定されたメソッドを呼び出します。その他の追加の引数はないものと仮定します。
-
-文字列であることに加えて、`methodOrKey` には関数自体を渡すこともできます。関数である場合、値をその関数に直接 apply できます。ここで [`apply`](http://ja.lmgtfy.com/?q=apply+javascript) を使用したいか、もしくは少なくともそれについて学びたいと思うかもしれません。
-
-```js
 _.invoke([[5, 1, 7], [3, 2, 1]], "sort");
 // => [[1, 5, 7], [1, 2, 3]]
-```
+Advanced Requirements
+Do these only if you have done the above. You will also need to write tests for these. Advanced requirements are not required, but attempts are highly encouraged. These methods can be found in the Underscore library. Please check out the Underscore documentation for more information or examples!
 
-## 応用レベル
+As always, remember to commit.
 
-上記の課題が完了した場合にのみ、次の課題を行ってください。**これらのテストも作成する必要があります。** 応用レベルは必須ではありませんが、チャレンジしてみることを強くお勧めします。これらのメソッドは、Underscore ライブラリにもあります。詳細や例については、Underscore のドキュメントを見てみましょう！
+_.sortBy - returns a sorted copy of a collection (first input) and ranks them by ascending order based on the results of each value passed through the iteratee (second input). The iteratee may also be the string name of the property to sort (e.g. length).
 
-常に、コミットすることを忘れないでください。
+_.zip - zips together two or more arrays with elements of the same index going together.
 
-1.  `_.sortBy` - ソートされたコレクション（最初の引数）のコピーを返し、イテレータ（2 番目の引数）を通した各値の結果に基づいて昇順に並べます。イテレータは、ソートするプロパティの文字列名（長さなど）である場合もあります。
+_.delay - delays a function for a given number of milliseconds, then calls it with the given arguments.
 
-1.  `_.zip` - 同じインデックスである要素を持つ 2 つ以上の配列をひとつに圧縮します。
+_.defaults - very similar to _.extend, but it doesn't overwrite a key that already exists.
 
-1.  `_.delay` - 指定したミリ秒数だけ関数を遅延させ、指定した引数を使って関数を呼び出します。
+_.throttle - returns a function that, when invoked, can only be triggered once during a given window of time.
 
-1.  `_.defaults` - `_.extend` と非常によく似ていますが、既に存在するキーは上書きされません。
-
-1.  `_.throttle` - 呼び出されたときに、指定した時間内で一度だけトリガーできる関数を返します。
-
-1.  応用レベルで実装した関数から１つ選び、その解法をまとめた Google slides を作成しましょう。
+Create a solutions slide deck for one of the advanced requirements methods.
